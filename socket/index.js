@@ -1,9 +1,11 @@
 import { Server } from "socket.io";
 
-const io = new Server(9000, {
-    cors:{
-        origin:'http://localhost:3000'
-    }
+const PORT = process.env.PORT || 9000;
+
+const io = new Server(PORT, {
+  cors: {
+    origin: process.env.CLIENT_URL || 'http://localhost:3000'
+  }
 });
 const users = [];
 
