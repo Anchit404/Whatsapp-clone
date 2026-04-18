@@ -15,7 +15,9 @@ const AccountProvider = ({children}) =>{
     const socket = useRef();
 
     useEffect(() => {
-        socket.current = io(process.env.REACT_APP_SOCKET_URL || 'http://localhost:9000');
+        socket.current = io(process.env.REACT_APP_SOCKET_URL || 'https://whatsapp.onrender.com', {
+            transports: ['websocket']
+        });
     }, []);
 
     return(
